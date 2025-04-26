@@ -13,11 +13,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
+      setScrolled(window.scrollY > 10)
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -31,17 +27,21 @@ export default function Navbar() {
   const handleDownload = () => {
     try {
       const link = document.createElement('a')
-      link.href = '/images/specialized.pdf' 
-      link.download = 'Rahul_Kumar_Resume.pdf' 
+      link.href = '/images/specialized.pdf'
+      link.download = 'Rahul_Kumar_Resume.pdf'
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
-      
-      // Optional: Add analytics tracking here
-      console.log('Resume downloaded')
     } catch (error) {
       console.error('Error downloading resume:', error)
-      // Optionally show an error toast/message to the user
+    }
+  }
+
+  const handleNavClick = (href: string) => {
+    setIsOpen(false)
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
@@ -63,25 +63,23 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link 
-            href="/" 
+          <button 
+            onClick={() => handleNavClick('#home')}
             className="text-xl font-bold text-gray-900 dark:text-white hover:text-primary transition-colors"
-            onClick={() => setIsOpen(false)}
           >
             Rahul<span className="text-primary"> Kumar</span>
-          </Link>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
+              <button
                 key={link.name}
-                href={link.href}
+                onClick={() => handleNavClick(link.href)}
                 className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
-                scroll={false}
               >
                 {link.name}
-              </Link>
+              </button>
             ))}
             <Button onClick={handleDownload}>
               <Download className="mr-2 h-4 w-4" /> Resume
@@ -107,15 +105,13 @@ export default function Navbar() {
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-4">
               {navLinks.map((link) => (
-                <Link
+                <button
                   key={link.name}
-                  href={link.href}
-                  className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors py-2"
-                  onClick={() => setIsOpen(false)}
-                  scroll={false}
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors py-2 text-left"
                 >
                   {link.name}
-                </Link>
+                </button>
               ))}
               <Button className="w-full" onClick={handleDownload}>
                 <Download className="mr-2 h-4 w-4" /> Resume

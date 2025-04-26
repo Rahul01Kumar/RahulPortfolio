@@ -34,38 +34,51 @@ export default function Skills() {
           <div className="w-20 h-1 bg-primary rounded"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {technicalSkills.map((skillGroup, index) => (
-            <div
-              key={index}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform hover:scale-105"
-            >
-              <div className="flex items-center mb-4">
-                {skillGroup.icon}
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white ml-3">{skillGroup.category}</h3>
-              </div>
-              <ul className="space-y-2">
-                {skillGroup.skills.map((skill, idx) => (
-                  <li key={idx} className="text-gray-600 dark:text-gray-300 flex items-center">
-                    <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                    {skill}
-                  </li>
-                ))}
-              </ul>
+        {/* Technical Skills - Horizontal Scroll on Mobile */}
+        <div className="mb-12">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
+            <Cpu className="h-6 w-6 text-primary mr-2" />
+            Technical Skills
+          </h3>
+          <div className="relative">
+            <div className="flex overflow-x-auto pb-6 scrollbar-hide gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6">
+              {technicalSkills.map((skillGroup, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-[280px] md:w-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className="flex items-center mb-4">
+                    {skillGroup.icon}
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white ml-3">{skillGroup.category}</h3>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    {skillGroup.skills.map((skill, idx) => (
+                      <div key={idx} className="text-gray-600 dark:text-gray-300 flex items-center">
+                        <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+        {/* Soft Skills - Horizontal Scroll on Mobile */}
+        <div>
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
             <Cpu className="h-6 w-6 text-primary mr-2" />
             Soft Skills
           </h3>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex overflow-x-auto pb-6 scrollbar-hide gap-3 md:grid md:grid-cols-5 md:gap-3">
             {softSkills.map((skill, index) => (
-              <span key={index} className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+              <div
+                key={index}
+                className="flex-shrink-0 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium text-center hover:bg-primary/20 transition-colors duration-300"
+              >
                 {skill}
-              </span>
+              </div>
             ))}
           </div>
         </div>
