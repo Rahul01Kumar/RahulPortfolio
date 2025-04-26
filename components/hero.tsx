@@ -69,7 +69,7 @@ export default function Hero() {
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary">
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/70 opacity-20"></div>
               <Image
-                src="/placeholder-user.png"
+                src="/images/img2.png"
                 alt="Rahul Kumar"
                 width={320}
                 height={320}
