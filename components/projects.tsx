@@ -4,6 +4,22 @@ import Link from "next/link"
 
 const projects = [
   {
+    title: "Event Registration ",
+    period: "March 2025 - April 2025 ",
+    link: "https://github.com/Rahul01Kumar/blogplatform.git", 
+    link1: "pradyutfoundation.org",
+    tech: ["Node.js", "MongoDB", "Razorpay API", "React"],
+    tools: ["VS Code", "MongoDB Atlas", "Git/GitHub"],
+    features: [
+      "Developed a secure registration system with form validation and Razorpay API integration for seamless payment processing",
+      "Built an admin dashboard with CRUD functionality to manage participants, rounds, and event logistics",
+      "Implemented file upload system for participants to submit their work during the event",
+      "Designed database schemas and RESTful APIs to handle event data and participant information",
+      "Created authentication system for admin access with role-based permissions",
+    ],
+    image: "/images/tts.jpg?height=300&width=500",
+  },
+  {
     title: "Library Management System",
     period: "Sept 2024 – Nov 2024",
     link: "https://github.com/Rahul01Kumar/Library_Management_System.git",
