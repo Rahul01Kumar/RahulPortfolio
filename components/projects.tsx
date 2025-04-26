@@ -77,7 +77,7 @@ export default function Projects() {
                         </Link>
                       </Button>
                       <Button size="icon" variant="secondary" asChild>
-                        <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                        <Link href={project.link1} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="h-5 w-5" />
                         </Link>
                       </Button>
