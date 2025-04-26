@@ -6,7 +6,8 @@ const projects = [
   {
     title: "Library Management System",
     period: "Sept 2024 – Nov 2024",
-    link: "https://github.com/Library_Mangement_System",
+    link: "https://github.com/Rahul01Kumar/Library_Management_System.git",
+    link1: "https://library-management-system-khaki-mu.vercel.app/",
     tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     tools: ["VS Code", "XAMPP", "Apache", "phpMyAdmin", "GitHub"],
     features: [
@@ -14,12 +15,13 @@ const projects = [
       "Developed a robust backend for real-time data and user authentication, cutting login errors by 60% and improving library access reliability.",
       "Crafted an intuitive interface that seamlessly adjusts across mobile and desktop platforms, resulting in a 40% increase in user engagement",
     ],
-    image: "/placeholder1.jpg?height=300&width=500",
+    image: "/images/placeholder1.jpg?height=300&width=500",
   },
   {
     title: "Construction Website",
     period: "Mar 2024-Apr 2024",
-    link: "https://github.com/Construction_website",
+    link: "https://github.com/Rahul01Kumar/Construction_website/tree/main/form",
+    link1: "https://rohitconstt.onrender.com/",
     tech: ["HTML", "CSS", "JavaScript", "Nodejs", "MongoDB"],
     tools: ["VS Code", "Express.js", "GitHub"],
     features: [
@@ -27,12 +29,13 @@ const projects = [
       "Integrated a backend system enabling seamless communication between newcomers and employers.",
       "Developed a responsive construction web platform for seamless cross-device navigation.",
     ],
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/images/const.jpg?height=300&width=500",
   },
   {
     title: "Soil Pollution Website",
     period: "Mar 2023-Apr 2023",
-    link: "https://rahul01kumar.github.io/Project.github.io/",
+    link: "https://github.com/Rahul01Kumar/Soil_Pollution.git",
+    link1: "https://rahul01kumar.github.io/Project.github.io/",
     tech: ["HTML", "CSS", "JavaScript"],
     tools: ["VS Code", "GitHub"],
     features: [
@@ -40,7 +43,7 @@ const projects = [
       "Designed a fully responsive interface for seamless accessibility across all devices.",
       "Implemented user-friendly navigation to enhance the browsing experience.",
     ],
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/images/soilpoll.jpg?height=300&width=500",
   },
 ]
 
@@ -114,12 +117,20 @@ export default function Projects() {
                   </ul>
                 </div>
 
-                <div className="pt-4">
+                <div className="pt-4 flex gap-4">
                   <Button asChild>
                     <Link href={project.link} target="_blank" rel="noopener noreferrer">
                       <Github className="mr-2 h-4 w-4" /> View on GitHub
                     </Link>
                   </Button>
+                
+                  {project.link1 && (
+                    <Button asChild variant="outline">
+                      <Link href={project.link1} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-2 h-4 w-4" /> Deployed Link
+                      </Link>
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>

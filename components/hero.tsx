@@ -7,7 +7,7 @@ import Image from "next/image"
 
 export default function Hero() {
   const handleDownload = () => {
-    window.open('/Specialized.pdf', '_blank')
+    window.open('/images/Specialized.pdf', '_blank')
   }
 
   return (
