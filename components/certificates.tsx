@@ -6,26 +6,27 @@ const certificates = [
     title: "Cloud Computing",
     issuer: "NPTEL Swayam",
     period: "Jul 2024 – Oct 2024",
-    link: "#",
+    link: "/images/cloud.pdf",
   },
   {
     title: "Full Stack using Java",
     issuer: "IBM",
     period: "Jun 2024- Jul 2024",
-    link: "#",
+    link: "/images/ibm.pdf",
+  },
+  {
+    title: "Building Web Application With PhP",
+    issuer: "Coursera",
+    period: "Nov 2024- Dec 2024",
+    link: "/images/php.pdf",
   },
   {
     title: "Server-side JavaScript with Node.js",
     issuer: "Coursera",
     period: "Apr 2024- May 2024",
-    link: "#",
-  },
-  {
-    title: "Data Structure and Algorithms",
-    issuer: "Udemy",
-    period: "Aug 2023- Dec 2023",
-    link: "#",
-  },
+    link: "/images/node.pdf",
+  }
+ 
 ]
 
 export default function Certificates() {

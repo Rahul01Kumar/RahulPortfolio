@@ -7,7 +7,13 @@ import Image from "next/image"
 
 export default function Hero() {
   const handleDownload = () => {
-    window.open('/images/Specialized.pdf', '_blank')
+    // This will only run on client-side after hydration
+    const link = document.createElement('a')
+    link.href = '/images/specialized.pdf'
+    link.download = 'Rahul_Kumar_Resume.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (
@@ -16,14 +22,13 @@ export default function Hero() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="w-full md:w-1/2 space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
-              Hi, I'm <span className="text-primary">Rahul Kumar</span>
+              <span className="text-primary">Rahul Kumar</span>
             </h1>
             <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
               Computer Science Engineering Student
             </h2>
             <p className="text-gray-600 dark:text-gray-300 text-lg">
-              Passionate about building web applications and solving complex problems. Currently pursuing Computer
-              Science Engineering at Lovely Professional University.
+              Passionate about building web applications and solving complex problems.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild className="hover:scale-105 transition-transform">
@@ -38,38 +43,43 @@ export default function Hero() {
               </Button>
             </div>
             <div className="flex items-center gap-4 pt-4">
-              <Link
-                href="https://github.com/Rahul01Kumar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors hover:scale-110"
-              >
-                <Github className="h-6 w-6" />
-                <span className="sr-only">GitHub</span>
-              </Link>
-              <Link
-                href="https://linkedin.com/in/rahul-kumar111"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors hover:scale-110"
-              >
-                <Linkedin className="h-6 w-6" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link
-                href="mailto:kumar.28rahul10@gmail.com"
-                className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors hover:scale-110"
-              >
-                <Mail className="h-6 w-6" />
-                <span className="sr-only">Email</span>
-              </Link>
+              <Button asChild variant="ghost" size="icon" className="hover:bg-transparent">
+                <Link
+                  href="https://github.com/Rahul01Kumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors hover:scale-110"
+                >
+                  <Github className="h-6 w-6" />
+                  <span className="sr-only">GitHub</span>
+                </Link>
+              </Button>
+              <Button asChild variant="ghost" size="icon" className="hover:bg-transparent">
+                <Link
+                  href="https://linkedin.com/in/rahul-kumar111"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors hover:scale-110"
+                >
+                  <Linkedin className="h-6 w-6" />
+                  <span className="sr-only">LinkedIn</span>
+                </Link>
+              </Button>
+              <Button asChild variant="ghost" size="icon" className="hover:bg-transparent">
+                <Link
+                  href="mailto:kumar.28rahul10@gmail.com"
+                  className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors hover:scale-110"
+                >
+                  <Mail className="h-6 w-6" />
+                  <span className="sr-only">Email</span>
+                </Link>
+              </Button>
             </div>
           </div>
           <div className="w-full md:w-1/2 flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/70 opacity-20"></div>
               <Image
-                src="/images/img2.png"
+                src="/images/img21.png"
                 alt="Rahul Kumar"
                 width={320}
                 height={320}

@@ -7,7 +7,7 @@ const projects = [
     title: "Event Registration ",
     period: "March 2025 - April 2025 ",
     link: "https://github.com/Rahul01Kumar/blogplatform.git", 
-    link1: "pradyutfoundation.org",
+    link1: "https://pradyutfoundation.org/",
     tech: ["Node.js", "MongoDB", "Razorpay API", "React"],
     tools: ["VS Code", "MongoDB Atlas", "Git/GitHub"],
     features: [

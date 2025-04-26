@@ -56,7 +56,7 @@ export default function About() {
             <div className="relative w-full max-w-md">
               <div className="absolute inset-0 bg-primary/20 rounded-lg transform rotate-3"></div>
               <img
-                src="/images/image2.png?height=400&width=600"
+                src="/images/image21.png?height=400&width=600"
                 alt="About Rahul Kumar"
                 className="relative z-10 rounded-lg shadow-lg w-full"
               />

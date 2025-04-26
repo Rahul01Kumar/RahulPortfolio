@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useMediaQuery } from "@/hooks/use-media-query"
 
@@ -28,6 +28,23 @@ export default function Navbar() {
     setIsOpen(!isOpen)
   }
 
+  const handleDownload = () => {
+    try {
+      const link = document.createElement('a')
+      link.href = '/images/specialized.pdf' 
+      link.download = 'Rahul_Kumar_Resume.pdf' 
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      
+      // Optional: Add analytics tracking here
+      console.log('Resume downloaded')
+    } catch (error) {
+      console.error('Error downloading resume:', error)
+      // Optionally show an error toast/message to the user
+    }
+  }
+
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
@@ -46,8 +63,12 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold text-gray-900 dark:text-white">
-            Rahul<span className="text-primary">Kumar</span>
+          <Link 
+            href="/" 
+            className="text-xl font-bold text-gray-900 dark:text-white hover:text-primary transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            Rahul<span className="text-primary"> Kumar</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -57,15 +78,24 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
+                scroll={false}
               >
                 {link.name}
               </Link>
             ))}
-            <Button>Resume</Button>
+            <Button onClick={handleDownload}>
+              <Download className="mr-2 h-4 w-4" /> Resume
+            </Button>
           </nav>
 
           {/* Mobile Navigation Toggle */}
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={toggleMenu}>
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="md:hidden" 
+            onClick={toggleMenu}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
@@ -82,11 +112,14 @@ export default function Navbar() {
                   href={link.href}
                   className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors py-2"
                   onClick={() => setIsOpen(false)}
+                  scroll={false}
                 >
                   {link.name}
                 </Link>
               ))}
-              <Button className="w-full">Resume</Button>
+              <Button className="w-full" onClick={handleDownload}>
+                <Download className="mr-2 h-4 w-4" /> Resume
+              </Button>
             </nav>
           </div>
         </div>
