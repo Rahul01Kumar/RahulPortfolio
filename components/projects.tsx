@@ -20,6 +20,22 @@ const ExternalLinkIcon = () => (
 
 const projects = [
   {
+    title: "Astech Engineering Works",
+    period: "March 2025 - April 2025",
+    link: "https://github.com/Rahul01Kumar/Astechpro.git", 
+    link1: "https://astech-ew.vercel.app/",
+    tech: ["Laravel(PHP)", "MongoDB", "BootStrap"],
+    tools: ["VS Code", "MongoDB Atlas", "Git/GitHub"],
+    features: [
+      "Developed secure admin dashboard with full CRUD functionality for managing products/services",
+      "Reduced admin workload by 40% by automating content updates.",
+      "Built file upload system with Laravel's filesystem",
+      "Automated content synchronization between admin panel and live website",
+    ],
+    image: "/images/aew.jpg",
+  },
+
+  {
     title: "Event Registration",
     period: "March 2025 - April 2025",
     link: "https://github.com/Rahul01Kumar/blogplatform.git", 

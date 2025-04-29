@@ -16,7 +16,7 @@ export default function Hero() {
     setIsMounted(true)
     const interval = setInterval(() => {
       setCurrentRole((prev) => (prev + 1) % roles.length)
-    }, 3000)
+    }, 1000)
     return () => clearInterval(interval)
   }, [])
 
